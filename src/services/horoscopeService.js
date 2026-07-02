@@ -2,7 +2,6 @@ import { sinhalaPredictions } from "../data/zodiacData";
 
 const AZTRO_API_URL = "https://aztro.sameerkumar.website";
 
-/* ── Public: fetch horoscope ── */
 export const getHoroscope = async (sign, day = "today") => {
   try {
     const response = await fetch(
@@ -23,7 +22,6 @@ export const getHoroscope = async (sign, day = "today") => {
   }
 };
 
-/* ── Merge API data with local enrichment ── */
 const enrichHoroscopeData = (apiData, sign) => {
   const local = getLocalPrediction(sign).data;
   return {
@@ -39,7 +37,6 @@ const enrichHoroscopeData = (apiData, sign) => {
   };
 };
 
-/* ── Full local prediction (fallback) ── */
 const getLocalPrediction = (sign) => {
   const getRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
   const today = new Date();
@@ -85,7 +82,6 @@ const getLocalPrediction = (sign) => {
   };
 };
 
-/* ── Helpers ── */
 const generateLuckyNumbers = () => {
   const nums = new Set();
   while (nums.size < 5) {
@@ -149,7 +145,6 @@ const getNumerology = (date) => {
   return reduce(sum);
 };
 
-/* ── Public: moon phase ── */
 export const getMoonPhase = () => {
   const phases = [
     { name: "නව චන්ද්‍ර",      emoji: "🌑", energy: "ආරම්භ",     description: "නව ආරම්භ සඳහා සුබ කාලය" },
@@ -164,7 +159,6 @@ export const getMoonPhase = () => {
   return phases[Math.floor(Math.random() * phases.length)];
 };
 
-/* ── Public: planetary positions ── */
 export const getPlanetaryPositions = () => {
   const positions = ["ශ්‍රේෂ්ඨ", "සාමාන්‍ය", "ශ්‍රද්ධාශීලී", "ශක්තිමත්", "සමබල"];
   const effects   = ["ධනාත්මක", "මධ්‍යස්ත",  "ශ්‍රේෂ්ඨ",    "ශ්‍රද්ධාවන්ත"];
@@ -178,7 +172,6 @@ export const getPlanetaryPositions = () => {
   ];
 };
 
-/* ── Private: weekly forecast ── */
 const generateWeeklyForecast = () => {
   const days   = ["ඉරිදා","සදුදා","අඟ","බදා","බ්‍රහ","සිකු","සෙන"];
   const emojis = ["☀️","🌤️","⭐","🌟","✨","🌠","🌙"];

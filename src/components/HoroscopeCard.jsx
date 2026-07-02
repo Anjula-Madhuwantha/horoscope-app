@@ -1,6 +1,5 @@
 import React from "react";
 
-/* ── Score bar sub-component ── */
 const ScoreBar = ({ score, color }) => (
   <div className="hc-score-bar">
     <div
@@ -13,7 +12,6 @@ const ScoreBar = ({ score, color }) => (
   </div>
 );
 
-/* ── Category card sub-component ── */
 const CategoryCard = ({ cat, value, score }) => (
   <div className="hc-cat-card" style={{ "--cat-color": cat.color }}>
     <div className="hc-cat-top">
@@ -36,9 +34,8 @@ const CategoryCard = ({ cat, value, score }) => (
   </div>
 );
 
-/* ── Main component ── */
 const HoroscopeCard = ({ horoscope, zodiacSign, loading }) => {
-  /* Loading state */
+
   if (loading) {
     return (
       <div className="hc-card hc-loading">
@@ -56,7 +53,6 @@ const HoroscopeCard = ({ horoscope, zodiacSign, loading }) => {
     );
   }
 
-  /* Empty state */
   if (!horoscope || !zodiacSign) {
     return (
       <div className="hc-card hc-empty">
@@ -96,7 +92,6 @@ const HoroscopeCard = ({ horoscope, zodiacSign, loading }) => {
   return (
     <div className="hc-card" style={{ "--sign-color": zodiacSign.color }}>
 
-      {/* ── HERO ── */}
       <div
         className="hc-hero"
         style={{
@@ -108,7 +103,7 @@ const HoroscopeCard = ({ horoscope, zodiacSign, loading }) => {
         <div className="hc-hero-glow" style={{ background: zodiacSign.color }} />
 
         <div className="hc-hero-content">
-          {/* Left — symbol */}
+
           <div className="hc-hero-left">
             <div
               className="hc-symbol-ring"
@@ -119,7 +114,6 @@ const HoroscopeCard = ({ horoscope, zodiacSign, loading }) => {
             <span className="hc-big-emoji">{zodiacSign.emoji}</span>
           </div>
 
-          {/* Centre — info */}
           <div className="hc-hero-center">
             <span className="hc-sign-label">ඔබේ රාශිය</span>
             <h2 className="hc-sign-name">{zodiacSign.name} රාශිය</h2>
@@ -160,7 +154,6 @@ const HoroscopeCard = ({ horoscope, zodiacSign, loading }) => {
             </div>
           </div>
 
-          {/* Right — overall ring */}
           <div className="hc-hero-right">
             <div className="hc-overall-ring">
               <svg viewBox="0 0 100 100" className="hc-ring-svg">
@@ -186,7 +179,6 @@ const HoroscopeCard = ({ horoscope, zodiacSign, loading }) => {
         </div>
       </div>
 
-      {/* ── AFFIRMATION ── */}
       {horoscope.affirmation && (
         <div
           className="hc-affirmation"
@@ -197,7 +189,6 @@ const HoroscopeCard = ({ horoscope, zodiacSign, loading }) => {
         </div>
       )}
 
-      {/* ── GENERAL PREDICTION ── */}
       <div className="hc-general">
         <div className="hc-general-icon">🌟</div>
         <div>
@@ -210,7 +201,6 @@ const HoroscopeCard = ({ horoscope, zodiacSign, loading }) => {
         </div>
       </div>
 
-      {/* ── LIFE CATEGORIES ── */}
       <div className="hc-section">
         <h3 className="hc-section-title">📊 ජීවිත ක්ෂේත්‍ර විශ්ලේෂණය</h3>
         <div className="hc-cat-grid">
@@ -225,7 +215,6 @@ const HoroscopeCard = ({ horoscope, zodiacSign, loading }) => {
         </div>
       </div>
 
-      {/* ── INFO STRIP ── */}
       <div className="hc-info-strip">
         {infoStrip.map((item, i) => (
           <div key={i} className="hc-info-item">
@@ -236,7 +225,6 @@ const HoroscopeCard = ({ horoscope, zodiacSign, loading }) => {
         ))}
       </div>
 
-      {/* ── MOON PHASE ── */}
       {horoscope.moonPhase && (
         <div className="hc-section hc-moon-section">
           <h3 className="hc-section-title">🌙 චන්ද්‍ර ස්ථිතිය</h3>
@@ -253,7 +241,6 @@ const HoroscopeCard = ({ horoscope, zodiacSign, loading }) => {
         </div>
       )}
 
-      {/* ── PLANETARY POSITIONS ── */}
       {horoscope.planetaryPositions && (
         <div className="hc-section">
           <h3 className="hc-section-title">🪐 ග්‍රහ ස්ථාන</h3>
@@ -280,7 +267,6 @@ const HoroscopeCard = ({ horoscope, zodiacSign, loading }) => {
         </div>
       )}
 
-      {/* ── COMPATIBILITY ── */}
       {horoscope.compatibility && (
         <div className="hc-section">
           <h3 className="hc-section-title">💑 රාශි ගැළපීම</h3>
@@ -304,7 +290,6 @@ const HoroscopeCard = ({ horoscope, zodiacSign, loading }) => {
         </div>
       )}
 
-      {/* ── SIGN DETAILS ── */}
       <div className="hc-section">
         <h3 className="hc-section-title">📖 රාශි විස්තර</h3>
         <div className="hc-details-grid">
