@@ -48,7 +48,6 @@ const DailyForecast = ({ zodiacSign }) => {
         <h3>📊 ඵලාපල දළ විශ්ලේෂණය</h3>
       </div>
 
-      {/* Tabs */}
       <div className="forecast-tabs">
         {Object.entries(forecasts).map(([key, val]) => (
           <button
@@ -61,7 +60,6 @@ const DailyForecast = ({ zodiacSign }) => {
         ))}
       </div>
 
-      {/* Content */}
       <div className="forecast-content">
         <div className="forecast-rating">
           <div className="rating-circle">
@@ -93,7 +91,6 @@ const DailyForecast = ({ zodiacSign }) => {
           </div>
         </div>
 
-        {/* Weekly Chart */}
         <div className="weekly-chart">
           <h4>📈 සතිය පුරා ඵලාපල</h4>
           <div className="chart-bars">

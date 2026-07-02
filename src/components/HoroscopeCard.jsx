@@ -78,7 +78,7 @@ const HoroscopeCard = ({ horoscope, zodiacSign, loading }) => {
       className="horoscope-card"
       style={{ "--sign-color": zodiacSign.color }}
     >
-      {/* Header */}
+
       <div className="card-header" style={{ background: `linear-gradient(135deg, ${zodiacSign.color}33, ${zodiacSign.color}11)` }}>
         <div className="card-header-content">
           <div className="sign-display">
@@ -107,7 +107,6 @@ const HoroscopeCard = ({ horoscope, zodiacSign, loading }) => {
         </div>
       </div>
 
-      {/* General Prediction */}
       <div className="general-prediction">
         <div className="prediction-icon">🌟</div>
         <div className="prediction-text">
@@ -120,7 +119,6 @@ const HoroscopeCard = ({ horoscope, zodiacSign, loading }) => {
         </div>
       </div>
 
-      {/* Categories */}
       <div className="categories-grid">
         {categories.map((cat) => (
           <div
@@ -152,7 +150,6 @@ const HoroscopeCard = ({ horoscope, zodiacSign, loading }) => {
         ))}
       </div>
 
-      {/* Planet Info */}
       <div className="planet-info">
         <div className="planet-item">
           <span>🪐 ග්‍රහ</span>

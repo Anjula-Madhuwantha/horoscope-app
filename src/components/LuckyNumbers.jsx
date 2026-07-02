@@ -44,7 +44,7 @@ const LuckyNumbers = ({ numbers, zodiacSign }) => {
 
   return (
     <div className="lucky-section">
-      {/* Lucky Numbers */}
+
       <div className="lucky-card numbers-card">
         <div className="lucky-header">
           <h3>🎯 සුභ අංක</h3>
@@ -76,7 +76,6 @@ const LuckyNumbers = ({ numbers, zodiacSign }) => {
         </p>
       </div>
 
-      {/* Lucky Colors */}
       <div className="lucky-card colors-card">
         <div className="lucky-header">
           <h3>🌈 සුභ වර්ණ</h3>
@@ -96,7 +95,6 @@ const LuckyNumbers = ({ numbers, zodiacSign }) => {
         </div>
       </div>
 
-      {/* Auspicious Times */}
       <div className="lucky-card times-card">
         <div className="lucky-header">
           <h3>⏰ සුභ කාල</h3>
@@ -117,7 +115,6 @@ const LuckyNumbers = ({ numbers, zodiacSign }) => {
         </div>
       </div>
 
-      {/* Lucky Gems */}
       <div className="lucky-card gems-card">
         <div className="lucky-header">
           <h3>💎 සුභ ගල්</h3>
