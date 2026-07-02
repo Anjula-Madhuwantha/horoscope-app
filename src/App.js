@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header from "./components/Header";
 import ZodiacSelector from "./components/ZodiacSelector";
 import HoroscopeCard from "./components/HoroscopeCard";
@@ -19,16 +19,14 @@ function App() {
     setSelectedSign(sign);
     setLoading(true);
     setActiveSection("horoscope");
-
     showNotification(`${sign.name} රාශියේ ඵලාපල ගෙන එමින්...`, "info");
-
     try {
       const result = await getHoroscope(sign.englishName, "today");
       if (result.success) {
         setHoroscope(result.data);
         showNotification(`${sign.name} රාශියේ ඵලාපල සූදානම්!`, "success");
       }
-    } catch (error) {
+    } catch {
       showNotification("දෝශයක් ඇතිවිය. නැවත උත්සාහ කරන්න.", "error");
     } finally {
       setLoading(false);
@@ -37,7 +35,7 @@ function App() {
 
   const showNotification = (message, type) => {
     setNotification({ message, type });
-    setTimeout(() => setNotification(null), 3000);
+    setTimeout(() => setNotification(null), 3500);
   };
 
   const navItems = [
@@ -49,7 +47,6 @@ function App() {
 
   return (
     <div className="app">
-
       {notification && (
         <div className={`notification ${notification.type}`}>
           <span>
@@ -71,10 +68,10 @@ function App() {
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDuration: `${Math.random() * 3 + 2}s`,
-              animationDelay: `${Math.random() * 2}s`,
-              fontSize: `${Math.random() * 15 + 5}px`,
-              opacity: Math.random() * 0.5 + 0.1,
+              animationDuration: `${Math.random() * 4 + 3}s`,
+              animationDelay: `${Math.random() * 3}s`,
+              fontSize: `${Math.random() * 14 + 6}px`,
+              opacity: Math.random() * 0.4 + 0.1,
             }}
           >
             {["✦", "★", "✧", "⭒", "✩"][Math.floor(Math.random() * 5)]}
@@ -94,14 +91,19 @@ function App() {
             >
               <span className="nav-icon">{item.icon}</span>
               <span className="nav-label">{item.label}</span>
+              {item.id === "horoscope" && selectedSign && (
+                <span
+                  className="nav-dot"
+                  style={{ background: selectedSign.color }}
+                />
+              )}
             </button>
           ))}
         </div>
       </nav>
 
       <main className="main-content">
-
-        {(activeSection === "selector" || !selectedSign) && (
+        {activeSection === "selector" && (
           <section className="section">
             <ZodiacSelector
               onSelect={handleSignSelect}
@@ -131,10 +133,7 @@ function App() {
         {activeSection === "lucky" && (
           <section className="section">
             {selectedSign ? (
-              <LuckyNumbers
-                numbers={horoscope?.luckyNumbers}
-                zodiacSign={selectedSign}
-              />
+              <LuckyNumbers horoscope={horoscope} zodiacSign={selectedSign} />
             ) : (
               <div className="please-select">
                 <div className="please-icon">🔮</div>
@@ -150,7 +149,7 @@ function App() {
         {activeSection === "forecast" && (
           <section className="section">
             {selectedSign ? (
-              <DailyForecast zodiacSign={selectedSign} />
+              <DailyForecast zodiacSign={selectedSign} horoscope={horoscope} />
             ) : (
               <div className="please-select">
                 <div className="please-icon">📊</div>
